@@ -1,5 +1,5 @@
 <script lang="js">
-	import { moduleDefStore } from '@stores'
+  import { moduleDefStore } from '@stores'
 
   let showErrorMsg = false
   let text = ''
@@ -16,14 +16,8 @@
       console.log('err: ', err)
     }
   }
-
-
 </script>
-<style>
-  textarea {
-    width: 32rem;
-  }  
-</style>
+
 <div>
   <h3>Paste Module Definition</h3>
   <textarea rows="4"
@@ -35,3 +29,9 @@
     <p class="text-red-600 font-bold">Incorrect JSON data!</p>
   {/if}
 </div>
+
+<style>
+  textarea {
+    width: 32rem;
+  }  
+</style>

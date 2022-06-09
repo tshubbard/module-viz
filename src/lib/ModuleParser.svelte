@@ -47,7 +47,6 @@
   }
 
   moduleDefStore.subscribe(value => onParseModuleDef(value))
-
 </script>
 
 <div>
