@@ -6,12 +6,6 @@
   let hasModuleDef = false
 
   const onModuleChange = () => {
-    console.log('text.length: ', text.length)
-    const blob = new Blob([text], {
-      type: 'text/json'
-    })
-    const file = new File([blob], 'myfile')
-    console.log('file: : ', file)
     let moduleDef = ''
     try {
       moduleDef = JSON.parse(text)
