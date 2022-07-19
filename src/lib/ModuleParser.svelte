@@ -49,34 +49,56 @@
   moduleDefStore.subscribe(value => onParseModuleDef(value))
 </script>
 
-<div>
+<div class="pageWrapper">
   <h1>Module Data</h1>
-  <div>
-    <h3>Module Size</h3>
-    <div>
-      <ul>
-        <li>in Kb: {sizeKb}</li>
-        <li>in Mb: {sizeMb}</li>
-      </ul>
+  <div class="dataWrapper">
+    <div class="counts">
+      <div>
+        <h3>Module Size</h3>
+        <div>
+          <ul>
+            <li>in Kb: {sizeKb}</li>
+            <li>in Mb: {sizeMb}</li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <h3>Component Counts</h3>
+        <ul>
+          {#each Object.entries(counts) as count}
+            
+              {#if count[1].name === 'Total'}
+                <li><strong> {count[1].name}: {count[1].count} </strong></li><li>- - - - - -</li>
+              {:else}
+                <li>{count[1].name}: {count[1].count}</li>
+              {/if}
+            
+          {/each}
+        </ul>
+      </div>
+    </div>
+    <div class="structure">
+      <div>
+        <h3>Component Structure</h3>
+    
+        {@html outputData}
+      </div>
     </div>
   </div>
-  <div>
-    <h3>Component Counts</h3>
-    <ul>
-      {#each Object.entries(counts) as count}
-        
-          {#if count[1].name === 'Total'}
-            <li><strong> {count[1].name}: {count[1].count} </strong></li><li>- - - - - -</li>
-          {:else}
-            <li>{count[1].name}: {count[1].count}</li>
-          {/if}
-        
-      {/each}
-    </ul>
-  </div>
-  <div>
-    <h3>Component Structure</h3>
-
-    {@html outputData}
-  </div>
 </div>
+
+<style>
+  .pageWrapper {
+    width: 100%;
+  }
+
+  .dataWrapper {
+    display: flex;
+    width: 100%;
+    padding: 2rem;
+  }
+  .counts,
+  .structure {
+    flex: 1 0 50%;
+  }
+</style>

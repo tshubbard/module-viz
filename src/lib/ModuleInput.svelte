@@ -20,7 +20,7 @@
 
 <div>
   <h3>Paste Module Definition</h3>
-  <textarea rows="4"
+  <textarea rows="6"
     bind:value={text}
     on:input={onModuleChange}
   />
